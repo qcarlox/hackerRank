@@ -1,0 +1,35 @@
+//https://www.hackerrank.com/challenges/library-fine
+#include <math.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <assert.h>
+#include <limits.h>
+#include <stdbool.h>
+
+int main(){
+    int dayReturned; 
+    int monthReturned; 
+    int yearReturned; 
+    scanf("%d %d %d",&dayReturned,&monthReturned,&yearReturned);
+    int dayDue; 
+    int monthDue; 
+    int yearDue; 
+    scanf("%d %d %d",&dayDue,&monthDue,&yearDue);
+    int fine = 0;
+    if(yearDue == yearReturned){
+        if(monthDue == monthReturned){
+            if(dayDue <= dayReturned){
+                fine = (dayReturned-dayDue)*15;
+            }
+        }
+        else if(monthDue < monthReturned){
+            fine = (monthReturned-monthDue)*500;    
+        }
+    }
+    else if(yearDue < yearReturned){
+        fine = 10000;
+    }
+    printf("%d",fine);
+    return 0;
+}
